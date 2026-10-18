@@ -2,7 +2,7 @@
 // Serves the static site in ./site. Pushing to main redeploys automatically
 // once the Worker is connected to this repository in Cloudflare (Settings > Build).
 {
-  "name": "openparchment",
+  "name": "twilight-pine-4ebd",
   "compatibility_date": "2026-10-01",
   "assets": {
     "directory": "./site",
