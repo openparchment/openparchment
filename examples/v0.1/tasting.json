@@ -1,0 +1,19 @@
+{
+  "id": "op:tasting:2026-10-18-la-loma-v60",
+  "type": "Tasting",
+  "subject": "op:roast:example-roasters-la-loma-2026",
+  "batchCode": "LL-1001",
+  "tastedAt": "2026-10-18T08:30:00-05:00",
+  "daysOffRoast": 17,
+  "context": "filter",
+  "brew": { "method": "V60", "doseGrams": 15, "waterGrams": 250, "waterTempC": 94, "timeSeconds": 180 },
+  "descriptors": [
+    { "vocabulary": "free-text", "term": "strawberry candy", "intensity": 0.7 },
+    { "vocabulary": "sca-flavor-wheel", "term": "Strawberry" },
+    { "vocabulary": "free-text", "term": "jasmine", "intensity": 0.3 }
+  ],
+  "attributes": { "acidity": 0.7, "sweetness": 0.8, "body": 0.4, "clarity": 0.85, "fermentationIntensity": 0.2 },
+  "rating": { "value": 4.5, "scaleMax": 5, "system": "stars" },
+  "notes": "Still opening up. Try again at day 21.",
+  "provenance": { "source": "beangraph", "sourceType": "consumer", "assertedAt": "2026-10-18T08:35:00-05:00", "method": "home brew" }
+}

@@ -1,0 +1,71 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://openparchment.org/schema/v0.2/tasting.schema.json",
+  "title": "Tasting",
+  "description": "One person's or lab's sensory record of a lot or roast at a point in time. Tastings are claims with provenance, not facts: many tastings of the same coffee can disagree, and that is useful data.",
+  "type": "object",
+  "required": ["id", "type", "subject", "tastedAt", "provenance"],
+  "properties": {
+    "id": { "$ref": "common.schema.json#/$defs/id" },
+    "type": { "const": "Tasting" },
+    "subject": {
+      "description": "Id of the lot or roast being tasted.",
+      "$ref": "common.schema.json#/$defs/id"
+    },
+    "batchCode": { "description": "Which roast batch, if known.", "type": "string" },
+    "tastedAt": { "type": "string", "format": "date-time" },
+    "daysOffRoast": { "type": "integer", "minimum": 0 },
+    "context": {
+      "type": "string",
+      "enum": ["cupping", "filter", "espresso", "milk_drink", "cold_brew", "other"]
+    },
+    "brew": {
+      "description": "Enough brew detail to make the tasting reproducible.",
+      "type": "object",
+      "properties": {
+        "method": { "description": "e.g. V60, Kalita Wave, Origami, Orea, AeroPress, espresso machine.", "type": "string" },
+        "doseGrams": { "type": "number", "minimum": 0 },
+        "waterGrams": { "type": "number", "minimum": 0 },
+        "yieldGrams": { "type": "number", "minimum": 0 },
+        "waterTempC": { "type": "number" },
+        "grinder": { "type": "string" },
+        "grindSetting": { "type": "string" },
+        "timeSeconds": { "type": "number", "minimum": 0 },
+        "water": { "description": "Water recipe or brand.", "type": "string" }
+      },
+      "additionalProperties": false
+    },
+    "descriptors": {
+      "description": "What it tasted like, as vocabulary terms. Use the taster's own words and add mapped terms from SCA, WCR or the Open Parchment vocabulary alongside.",
+      "type": "array",
+      "items": { "$ref": "common.schema.json#/$defs/vocabTerm" }
+    },
+    "attributes": {
+      "description": "Structural attributes on a 0 to 1 scale so tastings can be compared and embedded. Leave out anything not assessed.",
+      "type": "object",
+      "properties": {
+        "acidity": { "type": "number", "minimum": 0, "maximum": 1 },
+        "sweetness": { "type": "number", "minimum": 0, "maximum": 1 },
+        "body": { "type": "number", "minimum": 0, "maximum": 1 },
+        "bitterness": { "type": "number", "minimum": 0, "maximum": 1 },
+        "clarity": { "type": "number", "minimum": 0, "maximum": 1 },
+        "fermentationIntensity": { "type": "number", "minimum": 0, "maximum": 1 },
+        "finishLength": { "type": "number", "minimum": 0, "maximum": 1 }
+      },
+      "additionalProperties": false
+    },
+    "rating": {
+      "type": "object",
+      "required": ["value", "scaleMax"],
+      "properties": {
+        "value": { "type": "number", "minimum": 0 },
+        "scaleMax": { "type": "number", "exclusiveMinimum": 0 },
+        "system": { "description": "e.g. stars, sca-cupping-2004, sca-cva, personal.", "type": "string" }
+      },
+      "additionalProperties": false
+    },
+    "notes": { "type": "string" },
+    "provenance": { "$ref": "common.schema.json#/$defs/provenance" }
+  },
+  "additionalProperties": false
+}

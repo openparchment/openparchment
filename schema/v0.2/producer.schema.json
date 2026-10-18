@@ -1,0 +1,210 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://openparchment.org/schema/v0.2/producer.schema.json",
+  "title": "Producer",
+  "description": "A person, family, estate, cooperative or association that grows or processes coffee. Producers are first-class, persistent entities in Open Parchment: their identity, reputation and story follow every lot they produce. A producer may author and control their own record.",
+  "type": "object",
+  "required": [
+    "id",
+    "type",
+    "name",
+    "kind",
+    "location",
+    "provenance",
+    "registration"
+  ],
+  "properties": {
+    "id": {
+      "$ref": "common.schema.json#/$defs/id"
+    },
+    "type": {
+      "const": "Producer"
+    },
+    "name": {
+      "description": "The name the producer wants to be known by.",
+      "type": "string",
+      "minLength": 1
+    },
+    "alternateNames": {
+      "description": "Other spellings and names seen in the supply chain. Used for identity resolution.",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "kind": {
+      "type": "string",
+      "enum": [
+        "individual",
+        "family",
+        "estate",
+        "cooperative",
+        "association",
+        "washing_station",
+        "mill",
+        "other"
+      ]
+    },
+    "location": {
+      "$ref": "common.schema.json#/$defs/place"
+    },
+    "farms": {
+      "description": "Farms operated by this producer. Matches the farm level of the Global Coffee Data Standard.",
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/farm"
+      }
+    },
+    "memberOf": {
+      "description": "Ids of cooperatives or associations this producer belongs to.",
+      "type": "array",
+      "items": {
+        "$ref": "common.schema.json#/$defs/id"
+      }
+    },
+    "selfDescribed": {
+      "description": "Characteristics the producer reports about themselves, with consent, and controls the visibility of. Never inferred by others.",
+      "type": "object",
+      "properties": {
+        "ownership": {
+          "description": "Ownership characteristics the producer chooses to share, e.g. woman-owned, family-owned, indigenous-owned, youth-led, smallholder.",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "story": {
+          "$ref": "common.schema.json#/$defs/localizedText"
+        },
+        "visibility": {
+          "$ref": "common.schema.json#/$defs/visibility"
+        }
+      },
+      "additionalProperties": false
+    },
+    "certifications": {
+      "description": "Certifications held, e.g. organic, Fairtrade, Rainforest Alliance, with optional expiry.",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "name"
+        ],
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "certifier": {
+            "type": "string"
+          },
+          "validUntil": {
+            "type": "string",
+            "format": "date"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "contact": {
+      "description": "How buyers can reach the producer directly, if they choose to be reachable.",
+      "type": "object",
+      "properties": {
+        "website": {
+          "type": "string",
+          "format": "uri"
+        },
+        "email": {
+          "type": "string",
+          "format": "email"
+        },
+        "whatsapp": {
+          "type": "string"
+        },
+        "visibility": {
+          "$ref": "common.schema.json#/$defs/visibility"
+        }
+      },
+      "additionalProperties": false
+    },
+    "links": {
+      "type": "array",
+      "items": {
+        "$ref": "common.schema.json#/$defs/link"
+      }
+    },
+    "thirdPartyIds": {
+      "$ref": "common.schema.json#/$defs/thirdPartyIds"
+    },
+    "provenance": {
+      "$ref": "common.schema.json#/$defs/provenance"
+    },
+    "registration": {
+      "$ref": "common.schema.json#/$defs/registration"
+    },
+    "media": {
+      "type": "array",
+      "items": {
+        "$ref": "common.schema.json#/$defs/media"
+      }
+    }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "farm": {
+      "type": "object",
+      "required": [
+        "id",
+        "name"
+      ],
+      "properties": {
+        "id": {
+          "$ref": "common.schema.json#/$defs/id"
+        },
+        "name": {
+          "type": "string"
+        },
+        "location": {
+          "$ref": "common.schema.json#/$defs/place"
+        },
+        "elevation": {
+          "$ref": "common.schema.json#/$defs/elevation"
+        },
+        "areaHectares": {
+          "type": "number",
+          "minimum": 0
+        },
+        "coffeeAreaHectares": {
+          "type": "number",
+          "minimum": 0
+        },
+        "varietiesGrown": {
+          "type": "array",
+          "items": {
+            "$ref": "lot.schema.json#/$defs/variety"
+          }
+        },
+        "plotBoundary": {
+          "description": "GeoJSON Polygon or MultiPolygon of the plot, for deforestation-free and traceability claims. Producer-controlled visibility; defaults to permissioned.",
+          "type": "object",
+          "required": [
+            "geojson"
+          ],
+          "properties": {
+            "geojson": {
+              "type": "object"
+            },
+            "visibility": {
+              "$ref": "common.schema.json#/$defs/visibility",
+              "default": "permissioned"
+            }
+          },
+          "additionalProperties": false
+        },
+        "thirdPartyIds": {
+          "$ref": "common.schema.json#/$defs/thirdPartyIds"
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}

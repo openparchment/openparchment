@@ -1,0 +1,101 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://openparchment.org/schema/v0.1/roast.schema.json",
+  "title": "Roast",
+  "description": "A roasted coffee offered by a roaster: one roast profile of one or more lots, plus the dates and rest window that tell drinkers and agents when it will taste its best.",
+  "type": "object",
+  "required": ["id", "type", "name", "roaster", "lots", "provenance"],
+  "properties": {
+    "id": { "$ref": "common.schema.json#/$defs/id" },
+    "type": { "const": "Roast" },
+    "name": { "description": "Product name as sold.", "type": "string" },
+    "roaster": {
+      "type": "object",
+      "required": ["name"],
+      "properties": {
+        "id": { "$ref": "common.schema.json#/$defs/id" },
+        "name": { "type": "string" },
+        "location": { "$ref": "common.schema.json#/$defs/place" },
+        "website": { "type": "string", "format": "uri" }
+      },
+      "additionalProperties": false
+    },
+    "lots": {
+      "description": "Lots in this roast. A single-origin has one; a blend lists each with its share.",
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["lot"],
+        "properties": {
+          "lot": { "$ref": "common.schema.json#/$defs/id" },
+          "share": { "type": "number", "minimum": 0, "maximum": 1 }
+        },
+        "additionalProperties": false
+      }
+    },
+    "roastLevel": {
+      "type": "object",
+      "properties": {
+        "label": { "type": "string", "enum": ["extra_light", "light", "medium_light", "medium", "medium_dark", "dark"] },
+        "agtron": { "description": "Agtron or equivalent color reading, ground.", "type": "number" },
+        "colorScale": { "description": "Which color scale the number uses, e.g. agtron-gourmet, lighttells, roastrite.", "type": "string" }
+      },
+      "additionalProperties": false
+    },
+    "intendedFor": {
+      "type": "array",
+      "items": { "type": "string", "enum": ["filter", "espresso", "omni", "cold_brew"] }
+    },
+    "roasterNotes": {
+      "description": "Tasting notes printed by the roaster, in their own words and mapped to other vocabularies where possible.",
+      "type": "array",
+      "items": { "$ref": "common.schema.json#/$defs/vocabTerm" }
+    },
+    "rest": {
+      "description": "Days after roast date. Lets an app or agent say 'this bag peaks next Tuesday.'",
+      "type": "object",
+      "properties": {
+        "minDays": { "type": "integer", "minimum": 0 },
+        "peakStartDays": { "type": "integer", "minimum": 0 },
+        "peakEndDays": { "type": "integer", "minimum": 0 },
+        "bestBeforeDays": { "type": "integer", "minimum": 0 },
+        "provenance": { "$ref": "common.schema.json#/$defs/provenance" }
+      },
+      "additionalProperties": false
+    },
+    "batches": {
+      "description": "Specific roast batches, usually as printed on a bag. The roast date anchors the rest window.",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["roastDate"],
+        "properties": {
+          "batchCode": { "type": "string" },
+          "roastDate": { "type": "string", "format": "date" },
+          "gtin": { "description": "GS1 GTIN of the bag, if any.", "type": "string" }
+        },
+        "additionalProperties": false
+      }
+    },
+    "offers": {
+      "description": "Where and how this roast is sold. Maps cleanly to schema.org Offer.",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["url"],
+        "properties": {
+          "url": { "type": "string", "format": "uri" },
+          "price": { "type": "number", "minimum": 0 },
+          "currency": { "type": "string", "pattern": "^[A-Z]{3}$" },
+          "netWeightGrams": { "type": "number", "minimum": 0 },
+          "available": { "type": "boolean" }
+        },
+        "additionalProperties": false
+      }
+    },
+    "thirdPartyIds": { "$ref": "common.schema.json#/$defs/thirdPartyIds" },
+    "provenance": { "$ref": "common.schema.json#/$defs/provenance" }
+  },
+  "additionalProperties": false
+}

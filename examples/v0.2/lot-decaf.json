@@ -1,0 +1,54 @@
+{
+  "id": "op:lot:2026-example-coop-caturra-ea-decaf",
+  "type": "Lot",
+  "name": "Cooperativa Ejemplo Sugarcane Decaf",
+  "producer": "op:producer:cooperativa-ejemplo-cauca",
+  "blendOf": [
+    {
+      "producer": "op:producer:finca-uno-cauca",
+      "share": 0.4
+    },
+    {
+      "producer": "op:producer:finca-dos-cauca",
+      "share": 0.35
+    },
+    {
+      "producer": "op:producer:finca-tres-cauca",
+      "share": 0.25
+    }
+  ],
+  "origin": {
+    "country": "CO",
+    "subdivision": "CO-CAU",
+    "region": "Cauca"
+  },
+  "varieties": [
+    {
+      "name": "Caturra"
+    },
+    {
+      "name": "Castillo"
+    }
+  ],
+  "harvest": {
+    "year": 2026
+  },
+  "process": {
+    "method": "washed"
+  },
+  "decaf": {
+    "isDecaf": true,
+    "method": "ethyl_acetate_sugarcane"
+  },
+  "provenance": {
+    "source": "Example Importers",
+    "sourceType": "importer",
+    "assertedAt": "2026-09-01T00:00:00Z"
+  },
+  "registration": {
+    "registeredBy": "Example Importers",
+    "registeredByType": "importer",
+    "registeredAt": "2026-09-01T00:00:00Z",
+    "claimStatus": "unclaimed"
+  }
+}

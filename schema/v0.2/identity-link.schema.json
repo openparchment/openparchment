@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://openparchment.org/schema/v0.2/identity-link.schema.json",
+  "title": "IdentityLink",
+  "description": "A claim that two identifiers refer to the same thing, or that one came from the other. Links are how codes get joined at each handoff: whoever holds two codes at the same moment (exporter, importer, roaster) records one link, and the registry assembles the chain. Nobody has to join the whole supply chain.",
+  "type": "object",
+  "required": ["id", "type", "from", "to", "relation", "confidence", "provenance"],
+  "properties": {
+    "id": { "$ref": "common.schema.json#/$defs/id" },
+    "type": { "const": "IdentityLink" },
+    "from": { "$ref": "#/$defs/ref" },
+    "to": { "$ref": "#/$defs/ref" },
+    "relation": {
+      "description": "sameAs: two codes for the same thing. derivedFrom: 'from' was made from 'to' (a roast batch from a green lot). partOf: 'from' is a portion of 'to' (a split lot). mergedInto: duplicate records merged; 'to' is canonical.",
+      "type": "string",
+      "enum": ["sameAs", "derivedFrom", "partOf", "mergedInto"]
+    },
+    "confidence": {
+      "description": "confirmed: asserted by a party who held both codes, or by the subject. probable: suggested by matching (same origin, crop year, weight, timing) and awaiting confirmation.",
+      "type": "string",
+      "enum": ["confirmed", "probable", "rejected"]
+    },
+    "evidence": {
+      "description": "Where the two codes appeared together, e.g. contract, invoice, warehouse receipt, bag stencil, matching rule.",
+      "type": "string"
+    },
+    "provenance": { "$ref": "common.schema.json#/$defs/provenance" }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "ref": {
+      "description": "Either an Open Parchment id, or an outside identifier.",
+      "oneOf": [
+        { "type": "object", "required": ["opId"], "properties": { "opId": { "$ref": "common.schema.json#/$defs/id" } }, "additionalProperties": false },
+        { "type": "object", "required": ["external"], "properties": { "external": { "$ref": "common.schema.json#/$defs/thirdPartyId" } }, "additionalProperties": false }
+      ]
+    }
+  }
+}

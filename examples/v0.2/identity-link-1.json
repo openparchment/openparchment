@@ -1,0 +1,21 @@
+{
+  "id": "op:link:ico-003-0000-0123",
+  "type": "IdentityLink",
+  "from": {
+    "opId": "op:lot:2026-finca-ejemplo-pink-bourbon-washed"
+  },
+  "to": {
+    "external": {
+      "scheme": "ico-mark",
+      "value": "003/0000/0123"
+    }
+  },
+  "relation": "sameAs",
+  "confidence": "confirmed",
+  "evidence": "export contract and bag stencil",
+  "provenance": {
+    "source": "Example Exportadora",
+    "sourceType": "exporter",
+    "assertedAt": "2026-08-10T00:00:00Z"
+  }
+}

@@ -1,0 +1,67 @@
+{
+  "id": "op:harvest:finca-ejemplo-2026",
+  "type": "Harvest",
+  "producer": "op:producer:finca-ejemplo-huila",
+  "year": 2026,
+  "season": "main",
+  "start": "2026-04-10",
+  "end": "2026-07-15",
+  "narrative": {
+    "text": "Fue la cosecha más bonita en diez años, aunque llovió casi todas las tardes en mayo y el secado fue lento.",
+    "lang": "es",
+    "translations": [
+      {
+        "text": "It was the most beautiful harvest in ten years, though it rained almost every afternoon in May and drying was slow.",
+        "lang": "en",
+        "machineTranslated": true
+      }
+    ]
+  },
+  "conditions": [
+    {
+      "kind": "heavy_rain",
+      "severity": "moderate",
+      "from": "2026-05-01",
+      "to": "2026-05-31"
+    },
+    {
+      "kind": "drying_problems",
+      "detail": "slower drying on raised beds, extra turning",
+      "severity": "low"
+    },
+    {
+      "kind": "exceptional_quality",
+      "note": {
+        "text": "Maduración muy pareja en la Pink Bourbon",
+        "lang": "es"
+      }
+    }
+  ],
+  "volume": {
+    "relativeToNormal": "higher",
+    "visibility": "public"
+  },
+  "media": [
+    {
+      "url": "https://example.org/media/finca-ejemplo-2026-voice.ogg",
+      "kind": "voice_note",
+      "transcript": {
+        "text": "(transcripción de ejemplo)",
+        "lang": "es"
+      }
+    }
+  ],
+  "registration": {
+    "registeredBy": "Finca Ejemplo",
+    "registeredByType": "producer",
+    "registeredAt": "2026-10-18T12:00:00Z",
+    "claimStatus": "self_registered",
+    "claimChannel": "whatsapp"
+  },
+  "provenance": {
+    "source": "Finca Ejemplo",
+    "sourceType": "producer",
+    "assertedAt": "2026-08-01T00:00:00Z",
+    "method": "self-reported via WhatsApp"
+  }
+}

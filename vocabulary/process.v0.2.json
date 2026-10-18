@@ -1,0 +1,198 @@
+{
+  "$comment": "Process vocabulary. The schema stores the term id; this file says what each term means, in English, Spanish and Portuguese. Definitions are plain-language and deliberately short; proposals to refine them go through GOVERNANCE.md.",
+  "version": "0.2",
+  "method": {
+    "washed": {
+      "label": {
+        "en": "washed",
+        "es": "lavado",
+        "pt": "lavado"
+      },
+      "definition": {
+        "en": "Skin and fruit removed, mucilage removed by fermentation and/or washing before drying.",
+        "es": "Se retira la pulpa y el mucílago por fermentación y/o lavado antes del secado."
+      }
+    },
+    "natural": {
+      "label": {
+        "en": "natural",
+        "es": "natural",
+        "pt": "natural"
+      },
+      "definition": {
+        "en": "Whole cherry dried with the fruit intact, then hulled.",
+        "es": "La cereza entera se seca con el fruto intacto y luego se trilla."
+      }
+    },
+    "honey": {
+      "label": {
+        "en": "honey",
+        "es": "honey / enmielado",
+        "pt": "cereja descascada (honey)"
+      },
+      "definition": {
+        "en": "Skin removed, some or all mucilage left on during drying. Color describes how much.",
+        "es": "Se retira la pulpa y se seca con parte o todo el mucílago. El color indica cuánto."
+      }
+    },
+    "pulped_natural": {
+      "label": {
+        "en": "pulped natural",
+        "es": "despulpado natural",
+        "pt": "cereja descascada"
+      },
+      "definition": {
+        "en": "Brazilian term close to honey: pulped, dried with mucilage.",
+        "es": "Término brasileño cercano al honey: despulpado y secado con mucílago."
+      }
+    },
+    "semi_washed": {
+      "label": {
+        "en": "semi-washed",
+        "es": "semilavado",
+        "pt": "semi-lavado"
+      },
+      "definition": {
+        "en": "Partially washed; meaning varies by origin, so add notes.",
+        "es": "Parcialmente lavado; el significado varía por origen, agregue notas."
+      }
+    },
+    "wet_hulled": {
+      "label": {
+        "en": "wet-hulled",
+        "es": "descascarado húmedo",
+        "pt": "descascado úmido",
+        "id": "giling basah"
+      },
+      "definition": {
+        "en": "Parchment removed while beans are still wet, then dried. Common in Sumatra.",
+        "es": "Se retira el pergamino con el grano aún húmedo y luego se seca. Común en Sumatra."
+      }
+    },
+    "experimental": {
+      "label": {
+        "en": "experimental",
+        "es": "experimental",
+        "pt": "experimental"
+      },
+      "definition": {
+        "en": "A process outside the categories above; describe it in the fermentation fields and notes.",
+        "es": "Un proceso fuera de las categorías anteriores; descríbalo en los campos de fermentación y notas."
+      }
+    },
+    "other": {
+      "label": {
+        "en": "other",
+        "es": "otro",
+        "pt": "outro"
+      },
+      "definition": {
+        "en": "Anything else; describe it in notes.",
+        "es": "Cualquier otro; descríbalo en notas."
+      }
+    }
+  },
+  "fermentationEnvironment": {
+    "aerobic": {
+      "label": {
+        "en": "aerobic",
+        "es": "aeróbico",
+        "pt": "aeróbico"
+      },
+      "definition": {
+        "en": "Fermentation with access to oxygen.",
+        "es": "Fermentación con acceso a oxígeno."
+      }
+    },
+    "anaerobic": {
+      "label": {
+        "en": "anaerobic",
+        "es": "anaeróbico",
+        "pt": "anaeróbico"
+      },
+      "definition": {
+        "en": "Fermentation in a sealed container with little or no oxygen.",
+        "es": "Fermentación en recipiente sellado con poco o nada de oxígeno."
+      }
+    },
+    "carbonic_maceration": {
+      "label": {
+        "en": "carbonic maceration",
+        "es": "maceración carbónica",
+        "pt": "maceração carbônica"
+      },
+      "definition": {
+        "en": "Whole cherries fermented in a CO2-rich sealed environment, borrowed from winemaking.",
+        "es": "Cerezas enteras fermentadas en un ambiente sellado rico en CO2, tomado de la vinificación."
+      }
+    },
+    "mixed": {
+      "label": {
+        "en": "mixed",
+        "es": "mixto",
+        "pt": "misto"
+      },
+      "definition": {
+        "en": "More than one stage, e.g. anaerobic then aerobic.",
+        "es": "Más de una etapa, por ejemplo anaeróbico y luego aeróbico."
+      }
+    }
+  },
+  "decafMethod": {
+    "ethyl_acetate_sugarcane": {
+      "label": {
+        "en": "sugarcane (ethyl acetate)",
+        "es": "caña de azúcar (acetato de etilo)",
+        "pt": "cana-de-açúcar (acetato de etila)"
+      },
+      "definition": {
+        "en": "Caffeine removed with ethyl acetate, usually derived from sugarcane.",
+        "es": "Cafeína removida con acetato de etilo, usualmente derivado de la caña."
+      }
+    },
+    "swiss_water": {
+      "label": {
+        "en": "Swiss Water",
+        "es": "Swiss Water",
+        "pt": "Swiss Water"
+      },
+      "definition": {
+        "en": "Water-based method using green coffee extract.",
+        "es": "Método con agua usando extracto de café verde."
+      }
+    },
+    "mountain_water": {
+      "label": {
+        "en": "Mountain Water",
+        "es": "Mountain Water",
+        "pt": "Mountain Water"
+      },
+      "definition": {
+        "en": "Water-based method operated in Mexico.",
+        "es": "Método con agua operado en México."
+      }
+    },
+    "co2": {
+      "label": {
+        "en": "CO2",
+        "es": "CO2",
+        "pt": "CO2"
+      },
+      "definition": {
+        "en": "Supercritical carbon dioxide extraction.",
+        "es": "Extracción con dióxido de carbono supercrítico."
+      }
+    },
+    "methylene_chloride": {
+      "label": {
+        "en": "methylene chloride",
+        "es": "cloruro de metileno",
+        "pt": "cloreto de metileno"
+      },
+      "definition": {
+        "en": "Solvent-based method.",
+        "es": "Método con solvente."
+      }
+    }
+  }
+}

@@ -1,0 +1,431 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://openparchment.org/schema/v0.2/lot.schema.json",
+  "title": "Lot",
+  "description": "A traceable quantity of green coffee from a specific producer, harvest, variety set and process. The lot is the core unit of specialty coffee and the anchor that roasts, tastings and offers point back to.",
+  "type": "object",
+  "required": [
+    "id",
+    "type",
+    "name",
+    "producer",
+    "origin",
+    "harvest",
+    "process",
+    "provenance",
+    "registration"
+  ],
+  "properties": {
+    "id": {
+      "$ref": "common.schema.json#/$defs/id"
+    },
+    "type": {
+      "const": "Lot"
+    },
+    "name": {
+      "description": "The lot's name as the producer or exporter calls it.",
+      "type": "string"
+    },
+    "producer": {
+      "description": "Id of the producer. Required: a lot without a producer is not an Open Parchment lot.",
+      "$ref": "common.schema.json#/$defs/id"
+    },
+    "farm": {
+      "description": "Id of the farm, if the lot comes from a single farm.",
+      "$ref": "common.schema.json#/$defs/id"
+    },
+    "blendOf": {
+      "description": "For community or regional lots, the producers who contributed. Keeps smallholders visible even in blended lots.",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "producer"
+        ],
+        "properties": {
+          "producer": {
+            "$ref": "common.schema.json#/$defs/id"
+          },
+          "share": {
+            "description": "Fraction of the lot by weight, 0 to 1.",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "origin": {
+      "$ref": "common.schema.json#/$defs/place"
+    },
+    "elevation": {
+      "$ref": "common.schema.json#/$defs/elevation"
+    },
+    "species": {
+      "type": "string",
+      "enum": [
+        "arabica",
+        "canephora",
+        "liberica",
+        "excelsa",
+        "eugenioides",
+        "stenophylla",
+        "other"
+      ],
+      "default": "arabica"
+    },
+    "varieties": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/variety"
+      }
+    },
+    "harvest": {
+      "type": "object",
+      "required": [
+        "year"
+      ],
+      "properties": {
+        "year": {
+          "description": "Harvest year, or the starting year of a cross-year harvest season.",
+          "type": "integer",
+          "minimum": 1900
+        },
+        "season": {
+          "description": "Harvest season label, e.g. main, mitaca, fly, 2025/26.",
+          "type": "string"
+        },
+        "start": {
+          "type": "string",
+          "format": "date"
+        },
+        "end": {
+          "type": "string",
+          "format": "date"
+        }
+      },
+      "additionalProperties": false
+    },
+    "process": {
+      "$ref": "#/$defs/process"
+    },
+    "decaf": {
+      "$ref": "#/$defs/decaf"
+    },
+    "quantity": {
+      "type": "object",
+      "required": [
+        "amount",
+        "unit"
+      ],
+      "properties": {
+        "amount": {
+          "type": "number",
+          "minimum": 0
+        },
+        "unit": {
+          "type": "string",
+          "enum": [
+            "kg",
+            "bag_60kg",
+            "bag_69kg",
+            "bag_70kg",
+            "lb"
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    "scores": {
+      "description": "Quality scores under any named protocol. No protocol is privileged.",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "system",
+          "value",
+          "provenance"
+        ],
+        "properties": {
+          "system": {
+            "description": "e.g. sca-cupping-2004, sca-cva, coe, roaster-internal.",
+            "type": "string"
+          },
+          "value": {
+            "type": "number"
+          },
+          "scaleMax": {
+            "type": "number"
+          },
+          "provenance": {
+            "$ref": "common.schema.json#/$defs/provenance"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "prices": {
+      "description": "Optional price transparency, following the spirit of the Transparency Pledge. Each price says who paid whom, at what stage.",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "stage",
+          "price",
+          "provenance"
+        ],
+        "properties": {
+          "stage": {
+            "type": "string",
+            "enum": [
+              "farm_gate",
+              "cooperative",
+              "fob",
+              "importer",
+              "landed",
+              "roaster"
+            ]
+          },
+          "price": {
+            "$ref": "common.schema.json#/$defs/money"
+          },
+          "paidBy": {
+            "type": "string"
+          },
+          "paidTo": {
+            "type": "string"
+          },
+          "provenance": {
+            "$ref": "common.schema.json#/$defs/provenance"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "supplyChain": {
+      "description": "Who handled the lot between farm and roaster, in order.",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "role",
+          "name"
+        ],
+        "properties": {
+          "role": {
+            "type": "string",
+            "enum": [
+              "cooperative",
+              "mill",
+              "exporter",
+              "importer",
+              "warehouse",
+              "roaster",
+              "other"
+            ]
+          },
+          "name": {
+            "type": "string"
+          },
+          "thirdPartyIds": {
+            "$ref": "common.schema.json#/$defs/thirdPartyIds"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "links": {
+      "type": "array",
+      "items": {
+        "$ref": "common.schema.json#/$defs/link"
+      }
+    },
+    "thirdPartyIds": {
+      "$ref": "common.schema.json#/$defs/thirdPartyIds"
+    },
+    "provenance": {
+      "$ref": "common.schema.json#/$defs/provenance"
+    },
+    "harvestRecord": {
+      "description": "Id of the Harvest record that tells this season's story. Many lots can share one.",
+      "$ref": "common.schema.json#/$defs/id"
+    },
+    "lotStory": {
+      "description": "What was particular about this lot, in the producer's words, e.g. 'dried slower because of the October rains.'",
+      "$ref": "common.schema.json#/$defs/localizedText"
+    },
+    "registration": {
+      "$ref": "common.schema.json#/$defs/registration"
+    }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "variety": {
+      "description": "A coffee variety. Use the World Coffee Research catalog name where one exists; add a Wikidata id as a neutral crosswalk.",
+      "type": "object",
+      "required": [
+        "name"
+      ],
+      "properties": {
+        "name": {
+          "type": "string",
+          "examples": [
+            "Pink Bourbon",
+            "Gesha",
+            "SL28",
+            "Caturra",
+            "Ethiopian landrace"
+          ]
+        },
+        "wcrName": {
+          "description": "Name as it appears in the WCR Varieties Catalog.",
+          "type": "string"
+        },
+        "wikidataId": {
+          "type": "string",
+          "pattern": "^Q[0-9]+$"
+        },
+        "geneticGroup": {
+          "description": "e.g. Bourbon group, Typica group, Ethiopian landrace, Timor hybrid derivative.",
+          "type": "string"
+        },
+        "share": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "verified": {
+          "description": "True if confirmed by DNA fingerprinting rather than reported.",
+          "type": "boolean",
+          "default": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "process": {
+      "description": "How the cherry became green coffee. 'method' is the structured, searchable value; 'notes' carries the producer's own detail.",
+      "type": "object",
+      "required": [
+        "method"
+      ],
+      "properties": {
+        "method": {
+          "type": "string",
+          "enum": [
+            "washed",
+            "natural",
+            "honey",
+            "pulped_natural",
+            "semi_washed",
+            "wet_hulled",
+            "experimental",
+            "other"
+          ],
+          "description": "Value from vocabulary/process.v0.2.json."
+        },
+        "honeyColor": {
+          "type": "string",
+          "enum": [
+            "white",
+            "yellow",
+            "red",
+            "black"
+          ]
+        },
+        "fermentation": {
+          "type": "object",
+          "properties": {
+            "environment": {
+              "type": "string",
+              "enum": [
+                "aerobic",
+                "anaerobic",
+                "carbonic_maceration",
+                "mixed"
+              ]
+            },
+            "hours": {
+              "type": "number",
+              "minimum": 0
+            },
+            "inoculated": {
+              "description": "Yeast or bacteria culture added.",
+              "type": "boolean"
+            },
+            "culture": {
+              "type": "string"
+            },
+            "coFermented": {
+              "description": "Fruit, spices or other material added during fermentation. Listed so drinkers can tell co-ferments apart.",
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "thermalShock": {
+              "type": "boolean"
+            }
+          },
+          "additionalProperties": false
+        },
+        "drying": {
+          "type": "object",
+          "properties": {
+            "method": {
+              "type": "string",
+              "enum": [
+                "raised_beds",
+                "patio",
+                "mechanical",
+                "greenhouse",
+                "mixed",
+                "other"
+              ]
+            },
+            "days": {
+              "type": "number",
+              "minimum": 0
+            }
+          },
+          "additionalProperties": false
+        },
+        "notes": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "decaf": {
+      "description": "Decaffeination is a structured fact, not text in a description, so agents can filter on it.",
+      "type": "object",
+      "required": [
+        "isDecaf"
+      ],
+      "properties": {
+        "isDecaf": {
+          "type": "boolean"
+        },
+        "method": {
+          "type": "string",
+          "enum": [
+            "ethyl_acetate_sugarcane",
+            "swiss_water",
+            "mountain_water",
+            "co2",
+            "methylene_chloride",
+            "other"
+          ]
+        },
+        "decaffeinator": {
+          "type": "string"
+        },
+        "naturallyLowCaffeine": {
+          "description": "True for low-caffeine varieties such as Laurina, which are not decaffeinated.",
+          "type": "boolean"
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}

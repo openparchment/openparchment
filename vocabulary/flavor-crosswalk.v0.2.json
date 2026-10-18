@@ -1,0 +1,94 @@
+{
+  "$comment": "Starter crosswalk. Maps the Open Parchment flavor terms to how other vocabularies and everyday drinkers say the same thing. SCA and WCR terms are referenced by name only; their full works are not reproduced here.",
+  "version": "0.2",
+  "terms": [
+    {
+      "id": "op:flavor:strawberry",
+      "label": {
+        "en": "strawberry",
+        "es": "fresa",
+        "pt": "morango"
+      },
+      "maps": {
+        "sca-flavor-wheel": "Strawberry",
+        "wcr-sensory-lexicon": "Strawberry"
+      },
+      "aliases": [
+        "strawberry candy",
+        "strawberry jam"
+      ]
+    },
+    {
+      "id": "op:flavor:raspberry",
+      "label": {
+        "en": "raspberry",
+        "es": "frambuesa",
+        "pt": "framboesa"
+      },
+      "maps": {
+        "sca-flavor-wheel": "Raspberry"
+      },
+      "aliases": [
+        "pink lemonade"
+      ]
+    },
+    {
+      "id": "op:flavor:jasmine",
+      "label": {
+        "en": "jasmine",
+        "es": "jazmín",
+        "pt": "jasmim"
+      },
+      "maps": {
+        "sca-flavor-wheel": "Jasmine"
+      },
+      "aliases": [
+        "white flowers"
+      ]
+    },
+    {
+      "id": "op:flavor:black-tea",
+      "label": {
+        "en": "black tea",
+        "es": "té negro",
+        "pt": "chá preto"
+      },
+      "maps": {
+        "sca-flavor-wheel": "Black Tea"
+      },
+      "aliases": []
+    },
+    {
+      "id": "op:flavor:milk-chocolate",
+      "label": {
+        "en": "milk chocolate",
+        "es": "chocolate con leche",
+        "pt": "chocolate ao leite"
+      },
+      "maps": {
+        "sca-flavor-wheel": "Chocolate"
+      },
+      "aliases": [
+        "cocoa",
+        "brownie"
+      ]
+    },
+    {
+      "id": "op:flavor:vanilla-cream",
+      "label": {
+        "en": "vanilla cream",
+        "es": "crema de vainilla",
+        "pt": "creme de baunilha"
+      },
+      "maps": {
+        "sca-flavor-wheel": "Vanilla"
+      },
+      "aliases": [
+        "milky",
+        "cake",
+        "custard",
+        "cream soda"
+      ]
+    }
+  ]
+}

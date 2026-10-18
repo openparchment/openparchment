@@ -1,0 +1,27 @@
+{
+  "id": "op:link:example-roasters-sku-probable",
+  "type": "IdentityLink",
+  "from": {
+    "external": {
+      "scheme": "roaster",
+      "issuer": "Example Roasters",
+      "value": "SKU-LALOMA-26"
+    }
+  },
+  "to": {
+    "external": {
+      "scheme": "importer",
+      "issuer": "Example Importers",
+      "value": "EI-CO-26-118"
+    }
+  },
+  "relation": "derivedFrom",
+  "confidence": "probable",
+  "evidence": "matching rule: same origin, crop year and arrival window",
+  "provenance": {
+    "source": "openparchment-registry",
+    "sourceType": "app",
+    "assertedAt": "2026-10-02T00:00:00Z",
+    "method": "automated match, awaiting roaster confirmation"
+  }
+}

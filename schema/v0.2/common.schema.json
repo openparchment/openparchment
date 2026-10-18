@@ -1,0 +1,385 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://openparchment.org/schema/v0.2/common.schema.json",
+  "title": "Open Parchment common definitions",
+  "description": "Shared building blocks used by every Open Parchment entity: identifiers, provenance, vocabulary terms, places and measurements.",
+  "$defs": {
+    "id": {
+      "description": "A stable Open Parchment identifier. Format: op:<entity>:<slug-or-uuid>. Once issued, an id is never reused or reassigned.",
+      "type": "string",
+      "pattern": "^op:(producer|farm|harvest|lot|roaster|roast|tasting|link):[a-z0-9][a-z0-9._-]{1,127}$",
+      "examples": [
+        "op:producer:finca-ejemplo-huila",
+        "op:lot:2026-finca-ejemplo-pink-bourbon-washed"
+      ]
+    },
+    "thirdPartyId": {
+      "description": "An identifier for the same entity issued by another system. Borrowed from the Global Coffee Data Standard's thirdPartyIds pattern so entities can be matched across organizations without anyone giving up their own ids.",
+      "type": "object",
+      "required": [
+        "scheme",
+        "value"
+      ],
+      "properties": {
+        "scheme": {
+          "description": "Who issued the id. Well-known values: gcds, wikidata, gs1-gln, gs1-gtin, ico-mark, importer, exporter, roaster, app.",
+          "type": "string"
+        },
+        "value": {
+          "type": "string"
+        },
+        "issuer": {
+          "description": "Name of the organization that issued the id, when the scheme alone is ambiguous.",
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "thirdPartyIds": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/thirdPartyId"
+      }
+    },
+    "sourceType": {
+      "description": "The role of whoever asserted a fact.",
+      "type": "string",
+      "enum": [
+        "producer",
+        "cooperative",
+        "exporter",
+        "importer",
+        "roaster",
+        "retailer",
+        "lab",
+        "consumer",
+        "app",
+        "researcher",
+        "other"
+      ]
+    },
+    "provenance": {
+      "description": "Who said this, in what role, and when. Every Open Parchment record carries provenance so agents can weigh claims instead of guessing.",
+      "type": "object",
+      "required": [
+        "sourceType",
+        "assertedAt"
+      ],
+      "properties": {
+        "source": {
+          "description": "Name or id of the party that asserted the record.",
+          "type": "string"
+        },
+        "sourceType": {
+          "$ref": "#/$defs/sourceType"
+        },
+        "assertedAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "url": {
+          "description": "Where the claim was published, if anywhere.",
+          "type": "string",
+          "format": "uri"
+        },
+        "method": {
+          "description": "How the information was obtained, e.g. self-reported, cupping, lab analysis, scraped from product page.",
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "vocabTerm": {
+      "description": "A term from a named vocabulary. No vocabulary is privileged; SCA, WCR, a roaster's own words and a drinker's words can all coexist and be mapped to each other.",
+      "type": "object",
+      "required": [
+        "vocabulary",
+        "term"
+      ],
+      "properties": {
+        "vocabulary": {
+          "description": "Which vocabulary the term comes from. Well-known values: openparchment, sca-flavor-wheel, wcr-sensory-lexicon, roaster, free-text.",
+          "type": "string"
+        },
+        "term": {
+          "description": "The term as written in its source, in its source language.",
+          "type": "string"
+        },
+        "termId": {
+          "description": "The term's id within its vocabulary, when it has one.",
+          "type": "string"
+        },
+        "lang": {
+          "description": "BCP 47 language tag of the term.",
+          "type": "string",
+          "default": "en"
+        },
+        "intensity": {
+          "description": "Optional perceived intensity from 0 (barely there) to 1 (dominant).",
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "visibility": {
+      "description": "Who may see a sensitive field. Producers decide this for their own records.",
+      "type": "string",
+      "enum": [
+        "public",
+        "approximate",
+        "permissioned",
+        "private"
+      ],
+      "default": "approximate"
+    },
+    "place": {
+      "description": "Where something is. Country uses ISO 3166-1 alpha-2; subdivision uses ISO 3166-2.",
+      "type": "object",
+      "required": [
+        "country"
+      ],
+      "properties": {
+        "country": {
+          "type": "string",
+          "pattern": "^[A-Z]{2}$"
+        },
+        "subdivision": {
+          "type": "string",
+          "pattern": "^[A-Z]{2}-[A-Z0-9]{1,3}$"
+        },
+        "region": {
+          "description": "Producing region as commonly named, e.g. Huila, Yirgacheffe, Cerrado Mineiro.",
+          "type": "string"
+        },
+        "locality": {
+          "description": "Municipality, village or district.",
+          "type": "string"
+        },
+        "coordinates": {
+          "description": "Point location. Precise coordinates should only be public if the producer chooses.",
+          "type": "object",
+          "required": [
+            "lat",
+            "lon"
+          ],
+          "properties": {
+            "lat": {
+              "type": "number",
+              "minimum": -90,
+              "maximum": 90
+            },
+            "lon": {
+              "type": "number",
+              "minimum": -180,
+              "maximum": 180
+            },
+            "visibility": {
+              "$ref": "#/$defs/visibility"
+            }
+          },
+          "additionalProperties": false
+        },
+        "wikidataId": {
+          "type": "string",
+          "pattern": "^Q[0-9]+$"
+        }
+      },
+      "additionalProperties": false
+    },
+    "elevation": {
+      "description": "Elevation range in meters above sea level.",
+      "type": "object",
+      "properties": {
+        "min": {
+          "type": "number"
+        },
+        "max": {
+          "type": "number"
+        }
+      },
+      "additionalProperties": false
+    },
+    "money": {
+      "type": "object",
+      "required": [
+        "amount",
+        "currency",
+        "per"
+      ],
+      "properties": {
+        "amount": {
+          "type": "number",
+          "minimum": 0
+        },
+        "currency": {
+          "description": "ISO 4217 code.",
+          "type": "string",
+          "pattern": "^[A-Z]{3}$"
+        },
+        "per": {
+          "type": "string",
+          "enum": [
+            "kg",
+            "lb",
+            "carga_125kg",
+            "quintal_46kg",
+            "bag_60kg",
+            "bag_69kg",
+            "bag_70kg"
+          ]
+        },
+        "coffeeForm": {
+          "description": "What form the coffee was in when priced.",
+          "type": "string",
+          "enum": [
+            "cherry",
+            "parchment",
+            "green",
+            "roasted"
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    "link": {
+      "type": "object",
+      "required": [
+        "url"
+      ],
+      "properties": {
+        "url": {
+          "type": "string",
+          "format": "uri"
+        },
+        "rel": {
+          "description": "What the link is, e.g. website, product, story, photo, video.",
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "registration": {
+      "description": "Who created this record and whether its subject has claimed it. Anyone may register a record on someone's behalf (a cooperative, washing station, exporter, importer or roaster), but the record always belongs to its subject. See ID-POLICY.md.",
+      "type": "object",
+      "required": [
+        "registeredBy",
+        "registeredByType",
+        "registeredAt",
+        "claimStatus"
+      ],
+      "properties": {
+        "registeredBy": {
+          "description": "Name or Open Parchment id of the registrar.",
+          "type": "string"
+        },
+        "registeredByType": {
+          "$ref": "#/$defs/sourceType"
+        },
+        "registeredAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "claimStatus": {
+          "description": "unclaimed: created on the subject's behalf and not yet confirmed. claimed: the subject (or their authorized representative) controls the record. disputed: someone contests the record's accuracy or ownership.",
+          "type": "string",
+          "enum": [
+            "self_registered",
+            "unclaimed",
+            "claimed",
+            "disputed"
+          ]
+        },
+        "claimedAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "claimChannel": {
+          "description": "How the claim was made, e.g. web, whatsapp, sms, cooperative.",
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "localizedText": {
+      "description": "Text in the author's own language, with optional translations. The original is always kept.",
+      "type": "object",
+      "required": [
+        "text",
+        "lang"
+      ],
+      "properties": {
+        "text": {
+          "type": "string"
+        },
+        "lang": {
+          "description": "BCP 47 tag of the original.",
+          "type": "string"
+        },
+        "translations": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "text",
+              "lang"
+            ],
+            "properties": {
+              "text": {
+                "type": "string"
+              },
+              "lang": {
+                "type": "string"
+              },
+              "machineTranslated": {
+                "type": "boolean",
+                "default": true
+              }
+            },
+            "additionalProperties": false
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "media": {
+      "description": "A photo, video or voice note, typically from the producer.",
+      "type": "object",
+      "required": [
+        "url",
+        "kind"
+      ],
+      "properties": {
+        "url": {
+          "type": "string",
+          "format": "uri"
+        },
+        "kind": {
+          "type": "string",
+          "enum": [
+            "photo",
+            "video",
+            "voice_note",
+            "document"
+          ]
+        },
+        "caption": {
+          "$ref": "#/$defs/localizedText"
+        },
+        "capturedAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "transcript": {
+          "$ref": "#/$defs/localizedText"
+        },
+        "license": {
+          "description": "e.g. CC-BY-4.0, all-rights-reserved.",
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}

@@ -1,0 +1,104 @@
+{
+  "id": "op:producer:finca-ejemplo-huila",
+  "type": "Producer",
+  "name": "Finca Ejemplo",
+  "alternateNames": [
+    "Fca. Ejemplo",
+    "Ejemplo Family Farm"
+  ],
+  "kind": "family",
+  "location": {
+    "country": "CO",
+    "subdivision": "CO-HUI",
+    "region": "Huila",
+    "locality": "Pitalito"
+  },
+  "farms": [
+    {
+      "id": "op:farm:finca-ejemplo-la-loma",
+      "name": "La Loma",
+      "location": {
+        "country": "CO",
+        "subdivision": "CO-HUI",
+        "region": "Huila",
+        "coordinates": {
+          "lat": 1.85,
+          "lon": -76.05,
+          "visibility": "approximate"
+        }
+      },
+      "elevation": {
+        "min": 1750,
+        "max": 1900
+      },
+      "coffeeAreaHectares": 4.5,
+      "varietiesGrown": [
+        {
+          "name": "Pink Bourbon"
+        },
+        {
+          "name": "Caturra",
+          "wcrName": "Caturra"
+        }
+      ]
+    }
+  ],
+  "selfDescribed": {
+    "ownership": [
+      "woman-owned",
+      "family-owned",
+      "smallholder"
+    ],
+    "story": {
+      "text": "Somos una familia de tercera generación en Pitalito. Ejemplo ficticio para la especificación.",
+      "lang": "es",
+      "translations": [
+        {
+          "text": "We are a third-generation family in Pitalito. Fictional example for the specification.",
+          "lang": "en",
+          "machineTranslated": true
+        }
+      ]
+    },
+    "visibility": "public"
+  },
+  "contact": {
+    "whatsapp": "+57 300 000 0000",
+    "visibility": "permissioned"
+  },
+  "thirdPartyIds": [
+    {
+      "scheme": "gcds",
+      "value": "EXAMPLE-FARMER-0001"
+    },
+    {
+      "scheme": "importer",
+      "issuer": "Example Importers",
+      "value": "HUI-EJ-01"
+    }
+  ],
+  "provenance": {
+    "source": "Finca Ejemplo",
+    "sourceType": "producer",
+    "assertedAt": "2026-10-18T12:00:00Z",
+    "method": "self-reported"
+  },
+  "registration": {
+    "registeredBy": "Finca Ejemplo",
+    "registeredByType": "producer",
+    "registeredAt": "2026-10-18T12:00:00Z",
+    "claimStatus": "self_registered",
+    "claimChannel": "whatsapp"
+  },
+  "media": [
+    {
+      "url": "https://example.org/media/finca-ejemplo-drying-beds.jpg",
+      "kind": "photo",
+      "caption": {
+        "text": "Camas de secado en La Loma",
+        "lang": "es"
+      },
+      "license": "CC-BY-4.0"
+    }
+  ]
+}

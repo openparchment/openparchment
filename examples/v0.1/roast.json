@@ -1,0 +1,22 @@
+{
+  "id": "op:roast:example-roasters-la-loma-2026",
+  "type": "Roast",
+  "name": "La Loma, Colombia",
+  "roaster": { "name": "Example Roasters", "location": { "country": "US", "subdivision": "US-TX", "locality": "Austin" } },
+  "lots": [{ "lot": "op:lot:2026-finca-ejemplo-pink-bourbon-washed", "share": 1 }],
+  "roastLevel": { "label": "light", "agtron": 82, "colorScale": "agtron-gourmet" },
+  "intendedFor": ["filter"],
+  "roasterNotes": [
+    { "vocabulary": "roaster", "term": "pink lemonade" },
+    { "vocabulary": "roaster", "term": "raspberry" },
+    { "vocabulary": "sca-flavor-wheel", "term": "Raspberry" },
+    { "vocabulary": "roaster", "term": "black tea" }
+  ],
+  "rest": {
+    "minDays": 10, "peakStartDays": 21, "peakEndDays": 45, "bestBeforeDays": 75,
+    "provenance": { "source": "Example Roasters", "sourceType": "roaster", "assertedAt": "2026-10-01T00:00:00Z" }
+  },
+  "batches": [{ "batchCode": "LL-1001", "roastDate": "2026-10-01" }],
+  "offers": [{ "url": "https://example.com/la-loma", "price": 24, "currency": "USD", "netWeightGrams": 250, "available": true }],
+  "provenance": { "source": "Example Roasters", "sourceType": "roaster", "assertedAt": "2026-10-01T00:00:00Z" }
+}

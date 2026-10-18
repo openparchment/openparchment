@@ -1,0 +1,103 @@
+{
+  "id": "op:lot:2026-finca-ejemplo-pink-bourbon-washed",
+  "type": "Lot",
+  "name": "La Loma Pink Bourbon Washed",
+  "producer": "op:producer:finca-ejemplo-huila",
+  "farm": "op:farm:finca-ejemplo-la-loma",
+  "origin": {
+    "country": "CO",
+    "subdivision": "CO-HUI",
+    "region": "Huila",
+    "locality": "Pitalito"
+  },
+  "elevation": {
+    "min": 1750,
+    "max": 1900
+  },
+  "species": "arabica",
+  "varieties": [
+    {
+      "name": "Pink Bourbon",
+      "share": 1
+    }
+  ],
+  "harvest": {
+    "year": 2026,
+    "season": "main"
+  },
+  "process": {
+    "method": "washed",
+    "fermentation": {
+      "environment": "anaerobic",
+      "hours": 48,
+      "inoculated": false
+    },
+    "drying": {
+      "method": "raised_beds",
+      "days": 22
+    }
+  },
+  "decaf": {
+    "isDecaf": false
+  },
+  "quantity": {
+    "amount": 12,
+    "unit": "bag_70kg"
+  },
+  "prices": [
+    {
+      "stage": "farm_gate",
+      "price": {
+        "amount": 4.1,
+        "currency": "USD",
+        "per": "lb",
+        "coffeeForm": "green"
+      },
+      "paidBy": "Example Importers",
+      "paidTo": "Finca Ejemplo",
+      "provenance": {
+        "source": "Example Importers",
+        "sourceType": "importer",
+        "assertedAt": "2026-08-01T00:00:00Z"
+      }
+    }
+  ],
+  "supplyChain": [
+    {
+      "role": "exporter",
+      "name": "Example Exportadora"
+    },
+    {
+      "role": "importer",
+      "name": "Example Importers"
+    }
+  ],
+  "provenance": {
+    "source": "Example Importers",
+    "sourceType": "importer",
+    "assertedAt": "2026-08-01T00:00:00Z"
+  },
+  "harvestRecord": "op:harvest:finca-ejemplo-2026",
+  "lotStory": {
+    "text": "Este lote se secó más despacio por las lluvias de mayo; 22 días en camas.",
+    "lang": "es"
+  },
+  "registration": {
+    "registeredBy": "Finca Ejemplo",
+    "registeredByType": "producer",
+    "registeredAt": "2026-10-18T12:00:00Z",
+    "claimStatus": "self_registered",
+    "claimChannel": "whatsapp"
+  },
+  "thirdPartyIds": [
+    {
+      "scheme": "ico-mark",
+      "value": "003/0000/0123"
+    },
+    {
+      "scheme": "importer",
+      "issuer": "Example Importers",
+      "value": "EI-CO-26-118"
+    }
+  ]
+}

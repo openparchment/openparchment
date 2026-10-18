@@ -1,0 +1,51 @@
+{
+  "id": "op:producer:ke-example-wanjiku",
+  "type": "Producer",
+  "name": "Wanjiku M.",
+  "kind": "individual",
+  "location": {
+    "country": "KE",
+    "region": "Nyeri"
+  },
+  "farms": [
+    {
+      "id": "op:farm:ke-example-wanjiku-1",
+      "name": "Wanjiku M. smallholding",
+      "location": {
+        "country": "KE",
+        "region": "Nyeri"
+      },
+      "varietiesGrown": [
+        {
+          "name": "SL28",
+          "wcrName": "SL28"
+        },
+        {
+          "name": "Ruiru 11"
+        }
+      ]
+    }
+  ],
+  "memberOf": [
+    "op:producer:ke-example-cooperative-society"
+  ],
+  "registration": {
+    "registeredBy": "op:producer:ke-example-factory",
+    "registeredByType": "cooperative",
+    "registeredAt": "2026-11-02T09:00:00+03:00",
+    "claimStatus": "unclaimed"
+  },
+  "thirdPartyIds": [
+    {
+      "scheme": "cooperative",
+      "issuer": "Example Cooperative Society",
+      "value": "MEMBER-0417"
+    }
+  ],
+  "provenance": {
+    "source": "Example Factory (washing station)",
+    "sourceType": "cooperative",
+    "assertedAt": "2026-11-02T09:00:00+03:00",
+    "method": "member register"
+  }
+}

@@ -1,0 +1,62 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://openparchment.org/schema/v0.2/harvest.schema.json",
+  "title": "Harvest",
+  "description": "The story of one producer's harvest season, written once and linked from every lot it produced. Weather, problems, highlights and the feel of the year, in the producer's own words. This is the most human part of the standard.",
+  "type": "object",
+  "required": ["id", "type", "producer", "year", "registration", "provenance"],
+  "properties": {
+    "id": { "$ref": "common.schema.json#/$defs/id" },
+    "type": { "const": "Harvest" },
+    "producer": { "$ref": "common.schema.json#/$defs/id" },
+    "farms": {
+      "description": "Farms this harvest record covers. Omit if it covers all of the producer's farms.",
+      "type": "array",
+      "items": { "$ref": "common.schema.json#/$defs/id" }
+    },
+    "year": { "description": "Harvest year, or starting year of a cross-year season.", "type": "integer", "minimum": 1900 },
+    "season": { "description": "e.g. main, mitaca, fly, 2026/27.", "type": "string" },
+    "start": { "type": "string", "format": "date" },
+    "end": { "type": "string", "format": "date" },
+    "narrative": {
+      "description": "The season in the producer's words: 'the most beautiful harvest in ten years', 'rain every afternoon in October'.",
+      "$ref": "common.schema.json#/$defs/localizedText"
+    },
+    "conditions": {
+      "description": "Structured season events, so agents and buyers can compare years and regions.",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["kind"],
+        "properties": {
+          "kind": {
+            "type": "string",
+            "enum": [
+              "heavy_rain", "drought", "late_flowering", "early_flowering", "uneven_ripening", "frost", "hail", "heat",
+              "pest", "disease", "labor_shortage", "drying_problems", "transport_disruption", "exceptional_quality", "other"
+            ]
+          },
+          "detail": { "description": "e.g. the pest or disease name, or what went wrong with drying.", "type": "string" },
+          "severity": { "type": "string", "enum": ["low", "moderate", "high"] },
+          "from": { "type": "string", "format": "date" },
+          "to": { "type": "string", "format": "date" },
+          "note": { "$ref": "common.schema.json#/$defs/localizedText" }
+        },
+        "additionalProperties": false
+      }
+    },
+    "volume": {
+      "description": "Optional, producer-controlled. Compared to a typical year.",
+      "type": "object",
+      "properties": {
+        "relativeToNormal": { "type": "string", "enum": ["much_lower", "lower", "normal", "higher", "much_higher"] },
+        "visibility": { "$ref": "common.schema.json#/$defs/visibility" }
+      },
+      "additionalProperties": false
+    },
+    "media": { "type": "array", "items": { "$ref": "common.schema.json#/$defs/media" } },
+    "registration": { "$ref": "common.schema.json#/$defs/registration" },
+    "provenance": { "$ref": "common.schema.json#/$defs/provenance" }
+  },
+  "additionalProperties": false
+}

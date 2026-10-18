@@ -1,0 +1,25 @@
+{
+  "id": "op:link:ei-co-26-118",
+  "type": "IdentityLink",
+  "from": {
+    "external": {
+      "scheme": "ico-mark",
+      "value": "003/0000/0123"
+    }
+  },
+  "to": {
+    "external": {
+      "scheme": "importer",
+      "issuer": "Example Importers",
+      "value": "EI-CO-26-118"
+    }
+  },
+  "relation": "sameAs",
+  "confidence": "confirmed",
+  "evidence": "warehouse receipt",
+  "provenance": {
+    "source": "Example Importers",
+    "sourceType": "importer",
+    "assertedAt": "2026-09-02T00:00:00Z"
+  }
+}
