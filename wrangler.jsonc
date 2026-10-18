@@ -1,0 +1,15 @@
+// Cloudflare deployment for openparchment.org.
+// Serves the static site in ./site. Pushing to main redeploys automatically
+// once the Worker is connected to this repository in Cloudflare (Settings > Build).
+{
+  "name": "openparchment",
+  "compatibility_date": "2026-10-01",
+  "assets": {
+    "directory": "./site",
+    "not_found_handling": "404-page"
+  },
+  "routes": [
+    { "pattern": "openparchment.org", "custom_domain": true },
+    { "pattern": "www.openparchment.org", "custom_domain": true }
+  ]
+}
