@@ -2,11 +2,11 @@
   <img src="assets/logo.png" alt="openparchment.org" width="640">
 </p>
 
-<p align="center"><b>Every coffee has a story.</b><br>Open Parchment turns coffee's story into data that travels with it, from the producer's hands to your cup.</p>
+<p align="center"><b>Every coffee has a story.</b><br>Open Parchment turns the story of one coffee into data that travels through the supply chain.</p>
 
 ---
 
-**Open Parchment** turns coffee's story into data that travels with it, from the producer's hands to your cup. It is a free, non-profit open data standard that keeps farmers and producers visible, known entities all the way through the supply chain, so that people and AI agents can discover, understand, rate, roast and enjoy sustainable coffee using data that means the same thing everywhere.
+**Open Parchment** turns the story of one coffee into data that travels through the supply chain. It's a free, non-profit standard that helps producers own their record, share what makes their coffee special, and get paid fairly. One shared format means buyers, and the AI agents working for them, can find it.
 
 > **Status: v0.2 draft.** Everything here is open for discussion. Opinions from producers, importers, roasters, app builders and coffee obsessives are all welcome.
 
