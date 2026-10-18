@@ -2,8 +2,7 @@
   <img src="assets/logo.png" alt="openparchment.org" width="640">
 </p>
 
-<p align="center"><b>An open data standard for coffee, from farm to cup.</b><br>
-<i>Parchment · Pergamino · Pergaminho</i></p>
+<p align="center"><b>Every coffee has a story. An open data standard for coffee, from farm to cup.</b></p>
 
 ---
 
