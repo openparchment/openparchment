@@ -2,11 +2,11 @@
   <img src="assets/logo.png" alt="openparchment.org" width="640">
 </p>
 
-<p align="center"><b>Every coffee has a story.</b><br>Open Parchment turns the story of one coffee into data that travels through the supply chain.</p>
+<p align="center"><b>Every coffee has a story.</b><br>Open Parchment is the producer context layer for coffee: an open standard that turns coffee's story into data that travels with it, from the producer's hands to your cup.</p>
 
 ---
 
-**Open Parchment** turns the story of one coffee into data that travels through the supply chain. It's a free, non-profit standard that helps producers own their record, share what makes their coffee special, and get paid fairly. One shared format means buyers, and the AI agents working for them, can find it.
+**Open Parchment** is the producer context layer for coffee: an open standard that turns coffee's story into data that travels with it, from the producer's hands to your cup. It's a free, non-profit standard that helps producers own their record, share what makes their coffee special, and get paid fairly. One shared format means buyers, and the AI agents working for them, can find it.
 
 > **Status: v0.2 draft.** Everything here is open for discussion. Opinions from producers, importers, roasters, app builders and coffee obsessives are all welcome.
 
@@ -32,14 +32,15 @@ The name comes from **parchment**, the protective layer around the coffee seed a
 
 ## How it is layered
 
-**Open Parchment is the standard. An Open Parchment registry is the system of record. An MCP server on top is the doorway into the context layer.**
+**Together these layers make Open Parchment the producer context layer for coffee.** The standard defines the shape of a producer's context, the registry is the system of record that resolves who's who, and an open protocol over MCP is how apps and agents reach it.
 
 | Layer | What it is | Status |
 |---|---|---|
 | **Standard: data model** | The entities and fields: Producer, Farm, Harvest, Lot, Roast, Tasting, IdentityLink. | `schema/v0.2/` (JSON Schema 2020-12) |
 | **Standard: semantics** | What terms mean in English, Spanish and Portuguese, and how vocabularies map to each other (SCA, WCR, roaster words, drinker words). | `vocabulary/` |
 | **Registry** | The system of record: issues permanent ids, stores records, resolves identities, handles claims. Producers can use it over WhatsApp. Run by the non-profit, like ORCID for researchers. | Planned |
-| **Context layer** | Resolved, provenance-tagged, time-aware facts served to apps and agents, such as "this bag peaks in 4 days." | Planned: open API and MCP server |
+| **Context layer** | Resolved identity, shared meaning, provenance and timing, assembled into answers apps and agents can use, such as "this lot is María's, from her rainy 2026 season, and peaks in 4 days." | Planned |
+| **Protocol** | The verbs agents use to reach the context layer: find lots, resolve a producer, get a lot's full context, link identifiers, claim a record. | Planned: open API and MCP server |
 
 ## The entities
 
