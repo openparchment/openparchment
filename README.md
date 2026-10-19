@@ -8,7 +8,7 @@
 
 **Open Parchment** is the producer context layer for coffee: an open standard that turns coffee's story into data that travels with it, from the producer's hands to your cup. It's a free, non-profit standard that helps producers own their record, share what makes their coffee special, and get paid fairly. One shared format means buyers, and the AI agents working for them, can find it.
 
-> **Status: v0.2 draft.** Everything here is open for discussion. Opinions from producers, importers, roasters, app builders and coffee obsessives are all welcome.
+> **Status: technical sketch, not a standard.** Open Parchment is an early idea. The schemas here are working sketches to make the idea concrete and to invite critique. Expect everything to change, starting with feedback from producers, importers and roasters. The human-friendly version is at [openparchment.org](https://openparchment.org).
 
 ## Why
 
@@ -83,8 +83,8 @@ Ids look like `op:producer:finca-ejemplo-huila` and are never reused. Each entit
 ## Repository layout
 
 ```
-schema/v0.2/        Current draft: common, producer, harvest, lot, roast, tasting, identity-link
-schema/v0.1/        Previous draft, kept for reference
+schema/v0.2/        Sketch 2: common, producer, harvest, lot, roast, tasting, identity-link
+schema/v0.1/        Sketch 1, kept for reference
 examples/v0.2/      Fictional, valid records: a self-registered producer, an unclaimed Kenyan
                     smallholder registered by a washing station, a harvest story, lots
                     (including a decaf community lot), a roast, a tasting, identity links

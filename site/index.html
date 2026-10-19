@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Open Parchment · The producer context layer for coffee</title>
-<meta name="description" content="Open Parchment is the producer context layer for coffee: an open standard that turns coffee's story into data that travels with it, from the producer's hands to your cup. It's a free, non-profit standard that helps producers own their record, share what makes their coffee special, and get paid fairly. One shared format means buyers, and the AI agents working for them, can find it.">
+<meta name="description" content="Open Parchment is an early idea for the producer context layer for coffee: an open standard that would turn coffee's story into data that travels with it, from the producer's hands to your cup. We're looking for people to shape it.">
 <meta property="og:title" content="Open Parchment">
-<meta property="og:description" content="Every coffee has a story. Open Parchment is the producer context layer for coffee: an open standard that turns coffee's story into data that travels with it, from the producer's hands to your cup.">
+<meta property="og:description" content="Every coffee has a story. Open Parchment is an early idea for the producer context layer for coffee, and we're looking for people to shape it.">
 <meta property="og:image" content="https://openparchment.org/logo.png">
 <link rel="icon" href="favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -33,50 +33,65 @@
   a { color:var(--brown); }
   .btn { display:inline-block; font-family:Raleway, sans-serif; font-weight:600; background:var(--brown); color:#fff; text-decoration:none; padding:11px 22px; border-radius:6px; margin:6px; }
   .btn.alt { background:transparent; color:var(--brown); border:1.5px solid var(--brown); }
+  nav { display:flex; justify-content:flex-end; gap:22px; padding-top:18px; font-family:Raleway, sans-serif; font-size:15px; font-weight:600; }
+  nav a { text-decoration:none; }
+  ol.qs { padding-left:1.3em; } ol.qs li { margin:10px 0; }
   footer { margin:64px 0 40px; padding-top:20px; border-top:1px solid var(--line); font-family:Raleway, sans-serif; font-size:14px; color:var(--muted); text-align:center; }
   @media (max-width:520px) { body { font-size:17px; } h1 { font-size:27px; } }
 </style>
 </head>
 <body>
 <div class="wrap">
+  <nav><a href="/">Home</a><a href="/why">Why I'm doing this</a><a href="mailto:hello@openparchment.org?subject=Open%20Parchment%20feedback">Share your perspective</a></nav>
   <header>
     <img src="logo.png" alt="openparchment.org">
   </header>
 
   <h1>Every coffee has a story.</h1>
-  <p class="lede">Open Parchment is the producer context layer for coffee: an open standard that turns coffee's story into data that travels with it, from the producer's hands to your cup. It's a free, non-profit standard that helps producers own their record, share what makes their coffee special, and get paid fairly. One shared format means buyers, and the AI agents working for them, can find it.</p>
-  <p class="center"><span class="status">Draft v0.2 · open for feedback</span></p>
+  <p class="lede">Open Parchment is an early idea for the producer context layer for coffee: an open standard that would turn coffee's story into data that travels with it, from the producer's hands to your cup. The goal is to help producers own their record, share what makes their coffee special, and get paid fairly for it.</p>
+  <p class="center"><span class="status">An early idea. We're looking for people to shape it.</span></p>
 
   <h2>Why</h2>
   <p>About 95% of the world's 12.5 million coffee farms are smallholdings of 5 hectares or less (<a href="https://enveritas.org">Enveritas</a>). Most of those farmers' names disappear the moment their coffee is pooled with their neighbors' at a washing station or collection point. After that, every importer, roaster and coffee app describes it differently, so by the time it reaches your cup the producer's identity, story and reputation are gone.</p>
-  <p>Open Parchment keeps them attached. Drinkers and roasters can find and appreciate the people who grew their coffee, and producers can defend higher prices with the rich context behind every lot.</p>
-  <p>Open Parchment is a shared way of writing down the facts about a coffee, starting with who grew it. Think of it like the label on a bottle of wine, except it's digital, open to everyone, and the farmer can write their own.</p>
+  <p>Open Parchment would keep them attached, so drinkers and roasters can find and appreciate the people who grew their coffee, and producers can defend higher prices with the rich context behind every lot.</p>
+  <p>The idea is a shared way of writing down the facts about a coffee, starting with who grew it. Think of it like the label on a bottle of wine, except it's digital, open to everyone, and the farmer can write their own.</p>
 
-  <h2>What it does</h2>
+  <h2>What it would do</h2>
   <div class="grid">
-    <div class="card"><h3>A name that travels</h3>Each producer gets one permanent ID that stays with their coffee through every exporter, importer and roaster.</div>
-    <div class="card"><h3>Producers in control</h3>Farmers decide what's public: their story, their process, what they were paid, or none of it.</div>
-    <div class="card"><h3>The season's story</h3>Rain, drying, the best harvest in years. Written once, in the producer's own language, linked to every lot.</div>
-    <div class="card"><h3>Codes, connected</h3>ICO marks, importer codes and roaster SKUs are linked, so a bag on a shelf leads back to the farm.</div>
-    <div class="card"><h3>Facts, not marketing</h3>Process, decaf method and rest windows are real data, so apps and agents can find exactly the coffee you want.</div>
-    <div class="card"><h3>Built on what exists</h3>Compatible with the Global Coffee Data Standard, WCR variety names, GS1 traceability and schema.org.</div>
+    <div class="card"><h3>A name that travels</h3>Each producer would have one permanent ID that stays with their coffee through every exporter, importer and roaster.</div>
+    <div class="card"><h3>Producers in control</h3>Farmers would decide what's public: their story, their process, what they were paid, or none of it.</div>
+    <div class="card"><h3>The season's story</h3>Rain, drying, the best harvest in years. Told once, in the producer's own language, and linked to every lot.</div>
+    <div class="card"><h3>Codes, connected</h3>ICO marks, importer codes and roaster SKUs would be linked, so a bag on a shelf leads back to the farm.</div>
+    <div class="card"><h3>Facts, not marketing</h3>Process, decaf method and rest windows would be real data, so people and the tools they use can find exactly the coffee they want.</div>
+    <div class="card"><h3>Built on what exists</h3>Designed to work with what coffee already uses, like the Global Coffee Data Standard, WCR variety names, farm-mapping tools and GS1 traceability.</div>
   </div>
 
   <h2>What it isn't</h2>
-  <p>It isn't a company, a marketplace or a certification. Nobody sells anything through it and nobody owns it. The specification is free under Creative Commons Attribution 4.0, and the code is open source.</p>
+  <p>It isn't a company, a marketplace or a certification. Nobody would sell anything through it and nobody would own it. Anything we publish will be free and open for anyone to use.</p>
 
   <blockquote>Other projects built a place. This is a shared language. Places die. Languages spread if people use them.</blockquote>
 
-  <h2>Get involved</h2>
-  <p>We especially want to hear from <b>producers, cooperatives, washing stations and importers</b>, and from anyone building a coffee app who is tired of inventing their own schema. Tell us what we're getting wrong before it goes any further.</p>
+  <h2>Questions we're trying to answer</h2>
+  <p>We don't have the answers yet. These are the questions we most want help with:</p>
+  <ol class="qs">
+    <li>Where does a producer's name and story actually get lost today, and at which handoff?</li>
+    <li>What would make this worth the effort for a cooperative, washing station or importer?</li>
+    <li>What should never be public about a producer?</li>
+    <li>What would help a producer make the case for a better price?</li>
+    <li>What would a roaster actually be willing to put on a bag?</li>
+    <li>Who else is already working on this, and how should we work with them?</li>
+  </ol>
+
+  <h2>Share your perspective</h2>
+  <p>We especially want to hear from <b>producers, cooperatives, washing stations, importers and roasters</b>. If you've lived this problem, tell us what we're getting wrong before it goes any further. A short note is plenty.</p>
   <p class="center">
-    <a class="btn" href="https://github.com/openparchment">Read the draft standard</a>
-    <a class="btn alt" href="mailto:hello@openparchment.org">Get in touch</a>
+    <a class="btn" href="mailto:hello@openparchment.org?subject=Open%20Parchment%20feedback">Share your perspective</a>
+    <a class="btn alt" href="/why">Why I'm doing this</a>
   </p>
 
   <footer>
     Open Parchment · Every coffee has a story<br>
-    Specification CC BY 4.0 · Code Apache 2.0
+    For developers: <a href="https://github.com/openparchment/openparchment">technical sketches</a>
   </footer>
 </div>
 </body>
