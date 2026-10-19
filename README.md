@@ -8,7 +8,7 @@
 
 **Open Parchment** is the producer context layer for coffee: an open standard that turns coffee's story into data that travels with it, from the producer's hands to your cup. It's a free, non-profit standard that helps producers own their record, share what makes their coffee special, and get paid fairly. One shared format means buyers, and the AI agents working for them, can find it.
 
-> **Status: technical sketch, not a standard.** Open Parchment is an early idea. The schemas here are working sketches to make the idea concrete and to invite critique. Expect everything to change, starting with feedback from producers, importers and roasters. The human-friendly version is at [openparchment.org](https://openparchment.org).
+> **Status: technical sketch, not a standard.** Open Parchment is a working proposal. The schemas here are working sketches to make the idea concrete and to invite critique. Expect everything to change, starting with feedback from producers, importers and roasters. The human-friendly version is at [openparchment.org](https://openparchment.org).
 
 ## Why
 

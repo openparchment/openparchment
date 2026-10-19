@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Open Parchment · The producer context layer for coffee</title>
-<meta name="description" content="Open Parchment is an early idea for the producer context layer for coffee: an open standard that would turn coffee's story into data that travels with it, from the producer's hands to your cup. We're looking for people to shape it.">
+<meta name="description" content="Open Parchment is a working proposal for the producer context layer for coffee: an open standard that would turn coffee's story into data that travels with it, from the producer's hands to your cup. We're looking for people to shape it.">
 <meta property="og:title" content="Open Parchment">
-<meta property="og:description" content="Every coffee has a story. Open Parchment is an early idea for the producer context layer for coffee, and we're looking for people to shape it.">
+<meta property="og:description" content="Every coffee has a story. Open Parchment is a working proposal for the producer context layer for coffee, and we're looking for people to shape it.">
 <meta property="og:image" content="https://openparchment.org/logo.png">
 <link rel="icon" href="favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -36,6 +36,8 @@
   nav { display:flex; justify-content:flex-end; gap:22px; padding-top:18px; font-family:Raleway, sans-serif; font-size:15px; font-weight:600; }
   nav a { text-decoration:none; }
   ol.qs { padding-left:1.3em; } ol.qs li { margin:10px 0; }
+  .frame { background:#fff; border:1px solid var(--line); border-left:4px solid var(--green); border-radius:10px; padding:4px 20px; margin:24px 0 8px; font-size:18px; }
+  .frame b { color:var(--brown); font-family:Raleway, sans-serif; }
   footer { margin:64px 0 40px; padding-top:20px; border-top:1px solid var(--line); font-family:Raleway, sans-serif; font-size:14px; color:var(--muted); text-align:center; }
   @media (max-width:520px) { body { font-size:17px; } h1 { font-size:27px; } }
 </style>
@@ -48,8 +50,12 @@
   </header>
 
   <h1>Every coffee has a story.</h1>
-  <p class="lede">Open Parchment is an early idea for the producer context layer for coffee: an open standard that would turn coffee's story into data that travels with it, from the producer's hands to your cup. The goal is to help producers own their record, share what makes their coffee special, and get paid fairly for it.</p>
-  <p class="center"><span class="status">An early idea. We're looking for people to shape it.</span></p>
+  <p class="lede">Open Parchment is a working proposal for the producer context layer for coffee: an open standard that would turn coffee's story into data that travels with it, from the producer's hands to your cup. The goal is to help producers own their record, share what makes their coffee special, and get paid fairly for it.</p>
+  <p class="center"><span class="status">A working proposal. We're looking for people to shape it.</span></p>
+
+  <div class="frame">
+    <p><b>Not another form, database or certification.</b> Open Parchment is a shared data standard the coffee ecosystem can build on. The forms, apps, traceability systems and certifications that already exist keep doing their jobs. Open Parchment is what lets them connect the dots back to the producer.</p>
+  </div>
 
   <h2>Why</h2>
   <p>About 95% of the world's 12.5 million coffee farms are smallholdings of 5 hectares or less (<a href="https://enveritas.org">Enveritas</a>). Most of those farmers' names disappear the moment their coffee is pooled with their neighbors' at a washing station or collection point. After that, every importer, roaster and coffee app describes it differently, so by the time it reaches your cup the producer's identity, story and reputation are gone.</p>
